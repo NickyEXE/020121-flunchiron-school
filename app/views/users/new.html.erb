@@ -1,1 +1,16 @@
-<h1>Hello World!</h1>
+<h1>Welcome to Flunchiron School!</h1>
+
+<%= form_for @user do |f| %>
+  <%= render partial: "layouts/errors", locals: {record: @user} %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <%= f.label :zip_code %>
+  <%= f.number_field :zip_code, in: 10001..99999 %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+  <%= f.submit "Sign Up!" %>
+<% end %>
