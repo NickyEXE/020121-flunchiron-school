@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :restaurants
   resources :users
 
   get "/login", to: "sessions#login", as: "login"
