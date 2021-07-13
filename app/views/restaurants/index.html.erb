@@ -1,0 +1,10 @@
+<h1>FEED</h1>
+
+<div class="cards">
+<% @restaurants.each do |restaurant| %>
+  <div class="card">
+    <h3><%= link_to restaurant.name, restaurant %></h3>
+    <%= link_to(image_tag(restaurant.image_url), restaurant) %>
+    <p><%= restaurant.kind_of_food %></p>
+  </div>
+<% end %>
