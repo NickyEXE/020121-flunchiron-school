@@ -3,4 +3,14 @@
   <%= image_tag @restaurant.image_url %>
   <p><%= @restaurant.kind_of_food %></p>
   <p><%= @restaurant.address %></p>
+
+  <iframe
+  width="600"
+  height="450"
+  style="border:0"
+  loading="lazy"
+  allowfullscreen
+  src="https://www.google.com/maps/embed/v1/place?key=<%= ENV["GOOGLE_API_KEY"] %>
+    &q=<%= @restaurant.address %>">
+</iframe>
 </div>
