@@ -32,7 +32,7 @@ h1 {
   font-size: 1.25em;
 }
 
-.new_review {
+.new_review, .edit_review {
   margin-left: 30%;
   min-width: 300px;
   margin-right: 30%;

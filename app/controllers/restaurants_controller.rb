@@ -6,6 +6,7 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @review = Review.find_or_initialize_by(user: current_user, restaurant: @restaurant)
   end
 
 end
