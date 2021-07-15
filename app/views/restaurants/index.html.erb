@@ -1,5 +1,21 @@
 <h1>FEED</h1>
 
+<%= form_tag restaurants_path, method: :get do %>
+  <%= label_tag :location %>
+  <%= text_field_tag :location, @params["location"], placeholder: 10025 %>
+  <%= label_tag :kind_of_food %>
+  <%= text_field_tag :kind_of_food, @params["kind_of_food"], placeholder: "Pizza" %>
+  <%= submit_tag "Search!" %>
+<% end %>
+
+<% if @params.entries.any? %>
+  <p>Showing results for:</p>
+  <ul><% @params.entries.each do |param| %>
+    <li><%= "#{param[0]}: #{param[1]}"  %></li>
+  <% end %>
+  </ul>
+<% end %>
+
 <div class="cards">
 <% @restaurants.each do |restaurant| %>
   <div class="card">

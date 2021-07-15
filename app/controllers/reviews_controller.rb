@@ -3,8 +3,8 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:update]
 
   def create
-    @review = @restaurant.reviews.build(review_params)
-    @review.user = current_user
+    @review = current_user.reviews.build(review_params)
+    @review.restaurant = @restaurant
     if @review.save
       redirect_to @restaurant
     else
