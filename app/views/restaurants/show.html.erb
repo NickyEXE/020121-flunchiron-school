@@ -13,4 +13,17 @@
   src="https://www.google.com/maps/embed/v1/place?key=<%= ENV["GOOGLE_API_KEY"] %>
     &q=<%= @restaurant.address %>">
 </iframe>
+
+    <%= form_for [@restaurant, @review] do |f| %>
+      <%= render partial: "layouts/errors", locals: {record: @review} %>
+      <%= f.label :rating %>
+      <%= f.number_field :rating %>
+      <%= f.label :content %><br>
+      <%= f.text_area :content %>
+      <%= f.submit %>
+    <% end %>
+
+  <div class="cards">
+    <%= render @restaurant.reviews %>
+  </div>
 </div>

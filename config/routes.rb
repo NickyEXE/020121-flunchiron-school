@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :restaurants
+  resources :restaurants do
+    resources :reviews, only: [:create, :edit, :update, :destroy]
+  end
   resources :users
 
   get "/login", to: "sessions#login", as: "login"

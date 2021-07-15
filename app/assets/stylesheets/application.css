@@ -69,8 +69,6 @@ input {
 
 .review {
   background-color: red;
-  margin-left: 20%;
-  margin-right: 20%;
   margin-top: .5em;
   border-radius: 5px;
   padding: 1em;
@@ -100,7 +98,7 @@ textarea {
   color: red;
 }
 
-.field_with_errors > input {
+.field_with_errors > input, .field_with_errors > textarea {
   border: solid red 3px;
 }
 
