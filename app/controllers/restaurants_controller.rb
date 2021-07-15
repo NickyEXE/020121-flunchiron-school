@@ -2,7 +2,9 @@ class RestaurantsController < ApplicationController
   before_action :authorized
 
   def index
-    @restaurants = Restaurant.fetch_by_location(current_user.zip_code)
+    @location = params[:location] || current_user.zip_code
+    @params = params.permit(:location, :kind_of_food, :name).to_hash
+    @restaurants = Restaurant.fetch_by_location(@location, @params).filter_by_params(params)
   end
 
   def show

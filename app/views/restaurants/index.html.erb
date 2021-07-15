@@ -1,5 +1,15 @@
 <h1>FEED</h1>
 
+<%= form_tag restaurants_path, method: :get do %>
+  <%= label_tag :location %>
+  <%= text_field_tag :location, @params[:location], placeholder: "10025" %>
+  <%= label_tag :kind_of_food %>
+  <%= text_field_tag :kind_of_food, @params[:kind_of_food], placeholder: "Thai" %>
+  <%= label_tag :name %>
+  <%= text_field_tag :name, @params[:name], placeholder: "Chuck E. Cheese" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
 <div class="cards">
 <% @restaurants.each do |restaurant| %>
   <div class="card">
