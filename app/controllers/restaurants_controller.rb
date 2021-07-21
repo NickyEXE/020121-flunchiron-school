@@ -1,8 +1,8 @@
 class RestaurantsController < ApplicationController
 
   def index
-    @params = params.permit(:location).to_h
-    @restaurants = Restaurant.fetch_by_location(params[:location] || current_user.zip_code).kind_of_food(params[:kind_of_food])
+    @params = params.permit(:location, :kind_of_food, :search, :sort).to_h
+    @restaurants = Restaurant.fetch_by_location(params[:location], current_user).filter_by_params(@params)
   end
 
   def show

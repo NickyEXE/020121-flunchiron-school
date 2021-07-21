@@ -5,12 +5,20 @@
   <%= text_field_tag :location, @params["location"], placeholder: 10025 %>
   <%= label_tag :kind_of_food %>
   <%= text_field_tag :kind_of_food, @params["kind_of_food"], placeholder: "Pizza" %>
+  <%= label_tag :search %>
+  <%= text_field_tag :search, @params[:search], placeholder: "Charles Entertainment Cheese"%>
+  <%= select_tag :sort, raw("
+    <option value='alphabetical'>Alphabetical</option>
+    <option value='number_reviews'>Most Reviews</option>
+    <option value='average_review'>Average Review</option>
+    <option value='recommended'>Recommended</option>
+  ") %>
   <%= submit_tag "Search!" %>
 <% end %>
 
 <% if @params.entries.any? %>
   <p>Showing results for:</p>
-  <ul><% @params.entries.each do |param| %>
+  <ul><% @params.entries.filter{|param| !param[1].blank?}.each do |param| %>
     <li><%= "#{param[0]}: #{param[1]}"  %></li>
   <% end %>
   </ul>
